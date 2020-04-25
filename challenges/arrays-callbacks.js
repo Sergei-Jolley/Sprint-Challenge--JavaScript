@@ -70,8 +70,16 @@ The zoos want to display both the scientific name and the animal name in front o
 
 */
 const displayNames = [];
-zooAnimals.forEach(animal => console.log(`Name: ${this.animal_name}, Scientific: ${this.scientific_name}.`));;
 
+function disnam() {
+  for (i = 0; i <= zooAnimals.length - 1; i++) {
+    console.log(zooAnimals[i]);
+  }
+  displayNames.push(zooAnimals[i].animal_name, zooAnimals[i].scientific_name)
+};
+
+
+console.log(displayNames);
 /* Request 2: .map()
 
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
@@ -79,6 +87,14 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 */
 
 const lowCaseAnimalNames = [];
+
+function getYears(getFinals) {
+  let zooAnimals = getFinals(zooAnimals);
+  let newYears = zooAnimals.map((item) => {
+    return item.animal_name;
+  });
+  return newYears;
+};
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -87,15 +103,29 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 */
 const lowPopulationAnimals = [];
-console.log(lowPopulationAnimals);
+
+function getFinals(zooAnimals) {
+  if (mappedCityStates = zooAnimals.filter((match) => match.population < 5)) {
+    return mappedCityStates;
+  }
+  lowPopulationAnimals.push(mappedCityStates)
+};
+
+console.log(getFinals(zooAnimals));
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-console.log(populationTotal);
+const sum = zooAnimals.reduce((
+  accumulator, currentValue) => {
+  accumulator + currentValue;
+}, 0);
+
+
+console.log(sum);
+
 
 
 // ==== Callbacks ====  
